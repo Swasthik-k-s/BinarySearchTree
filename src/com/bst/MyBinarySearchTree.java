@@ -33,7 +33,20 @@ public class MyBinarySearchTree<K extends Comparable<K>> {
 		printPreorder((MyBinaryNode<K>) node.getRight());
 	}
 	
-	void print() {
+	public void print() {
 		printPreorder(root);
+		System.out.println();
+	}
+	
+	public int getSize() {
+		return getSizeRecursive(root);
+	}
+	
+	private int getSizeRecursive(MyBinaryNode<K> current) {
+		if (current == null) {
+			return 0;
+		}
+		return 1 + getSizeRecursive((MyBinaryNode<K>) current.getLeft()) + getSizeRecursive((MyBinaryNode<K>) current.getRight());
+
 	}
 }
